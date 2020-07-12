@@ -7,9 +7,17 @@
 O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo sobre a qualidade do ar. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos, usando tecnologia aberta com uma plataforma de IoT (internet das coisas) e sensores que medem temperatura do ar, umidade ar, pressão  atmosférica e presença de gases tóxicos.
 
 ## 3. Instalação do kit MonitorAr
-O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU e por dois sensores: o BME280 que mede a temperatura do ar, em graus Celsius, a umidade do ar, em taxa percentual, e pressão atmosférica, em hectoPascal, e com base nesses dados, calcula a altitude, em metros; e o sensor MQ-135, que detecta presença de gases tóxicos, sem unidade, em uma faixa de valor de concentração que varia de 0 a 1023.
+O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU e por dois sensores, o BME280 e o MQ-135.
 
-Os dados coletados pelos sensores são publicados no servidor da Adafruit IO a cada intervalo de aproximadamente 30 segundos, usando o protocolo de comunicação [MQTT](https://pt.wikipedia.org/wiki/MQTT), que
+O sensor BME280 mede:
+- a temperatura do ar, em graus Celsius;
+- a umidade do ar, em taxa percentual;
+- pressão atmosférica, em hectoPascal;
+- e com base nos dados coletados, calcula a altitude, em metros.
+
+O sensor MQ-135 detecta presença de gases tóxicos, sem unidade, em uma faixa de valor de concentração que varia de 0 a 1023.
+
+Os cinco dados coletados pelos sensores são publicados no servidor da Adafruit IO a cada intervalo de aproximadamente 30 segundos, usando o protocolo de comunicação [MQTT](https://pt.wikipedia.org/wiki/MQTT). 
 
 Antes de por o kit em funcionamento, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi. 
 Após a atualização do código, deverá ser feita a instalação do kit, preferencialmente em uma área externa coberta, protegida da chuva, água, do sol e de fontes de calor. O kit deverá ser instalado em uma altura entre 1,20m e 2,00m acima do solo - para diminuir a interferência do solo na medida dos dados climáticos do ar.
