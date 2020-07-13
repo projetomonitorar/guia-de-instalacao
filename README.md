@@ -85,7 +85,7 @@ Para atualizar os dados de acesso ao servidor da Adafruit IO, localizar o códig
 #define AIO_USERNAME  "nomeDeUsuario"
 #define AIO_KEY       "chaveDaAdafruitIO"
 ```
-Substituir `nomeDeUsuario` pelo nome de usuário da respectiva estação, e `chaveDaAdafruitIO` pela chave de acesso do usuário. Para 
+Substituir `nomeDeUsuario` pelo nome de usuário da respectiva estação, e `chaveDaAdafruitIO` pela chave de acesso do usuário. 
 
 #### 3.3.3. Feeds dos dados
 
@@ -98,7 +98,7 @@ Adafruit_MQTT_Publish pubAltitude = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/
 Adafruit_MQTT_Publish pubGases = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/gasesN");
 ```
 
-Substituir somente a letra `N` no final da linha de código pelo respectivo número da estação, repetindo a substituição em todos os cinco feeds. Por exemplo, se estou atualizando o código da Estaçao 1, o `"/feeds/temperaturaN"`será atualizado por `"/feeds/temperatura1"`, o `"/feeds/umidadeN"` será `"/feeds/umidade1"`, e assim por diante.
+Substituir somente a letra `N` no final da linha de código pelo respectivo número da estação, repetindo a substituição em todos os cinco feeds. Por exemplo, se estou atualizando o código da Estaçao 1, o `"/feeds/temperaturaN"`será atualizado para `"/feeds/temperatura1"`, o `"/feeds/umidadeN"` será `"/feeds/umidade1"`, e assim por diante.
 
 ___
 
