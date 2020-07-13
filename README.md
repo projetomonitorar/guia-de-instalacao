@@ -7,6 +7,8 @@ O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento parti
 
 Antes de por o kit em funcionamento, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e dados de acessos da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então iniciar a coleta dos dados.
 
+**Atenção**: O kit MonitorAr contém peças frágeis, cuidado ao manusear evitando tocar no sensor externo.
+
 ## 1. Instação do Arduino IDE  
 Para atualizar o código é necessário baixar o *Arduino IDE* - o software que permite escrever e enviar código para o microcontrolador Arduino, Esp8266, entre outros.
 
@@ -94,7 +96,7 @@ Após a confirmação que as atualizações foram realizadas, fechar a janela, e
 ## 4. Instalação física
 O kit *MonitorAr* deverá ser instalado preferencialmente em uma área externa coberta, protegida da chuva, água, do sol e de fontes de calor, e sobretudo, dentro da área de abrangência da rede de WiFi especificada. 
 
-O kit deverá ser instalado em uma altura entre 1,20m e 2,00m acima do solo, para diminuir a interferência do solo na medida dos dados climáticos do ar.
+O kit deverá ser instalado na posição vertical, com o conector USB orientado para baixo, em uma altura entre 1,20m e 2,00m acima do solo - para diminuir a interferência do solo na medida dos dados climáticos do ar.
 
 O kit deverá ser fixado usando como suporte de amarração a abraçadeira de nylon preta que tem na parte de trás do kit *MonitorAr*.
 
