@@ -107,7 +107,7 @@ No total, são enviados cinco dados para a plataforma Adafruit IO, conforme desc
 
 O sensor BME280 mede:
 - a temperatura do ar, em graus Celsius;
-- a umidade relativado ar, em taxa percentual;
+- a umidade relativa do ar, em taxa percentual;
 - pressão atmosférica, em hectoPascal;
 - e com base nos dados coletados, calcula a altitude, em metros.
 
