@@ -25,31 +25,7 @@ No menu `Ferramentas > Placas`, selecionar na lista a placa `NodeMCU 1.0 (ESP-12
 
 Observação: se tiver mais de uma porta *Com* disponível, anote os nomes, pressione a tecla Esc e desplugue o kit MonitorAr do computador. Abrir novamente `Ferramentas > Porta` e observe qual porta *Com* foi desligada, a que não está mais na lista é a porta *Com* do MonitorAr, que deverá ser selecionada.
 
-Para testar se a instalação foi bem sucedida, abrir o menu `Arquivo > Exemplos > 01. Basics > Blink`. Substituir 
-
-```pinMode(LED_BUILTIN, OUTPUT);``` 
-
-por 
-
-```pinMode(D4, OUTPUT);```
-
-em seguida,
-
-```digitalWrite(LED_BUILTIN, HIGH);```
-  
-  por
-  
-``` digitalWrite(D4, HIGH);```
-  
- e por último
- 
-```digitalWrite(LED_BUILTIN, LOW);```
-
-por
-
-```digitalWrite(D4, LOW);```
-
-Em seguida, no menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do Esp vai piscar no intervalo de 1000 microsegundos (1 segundo). 
+Para testar se a instalação foi bem sucedida, abrir o menu `Arquivo > Exemplos > 01. Basics > Blink`. Substituir `pinMode(LED_BUILTIN, OUTPUT);` por `pinMode(D4, OUTPUT);`, em seguida `digitalWrite(LED_BUILTIN, HIGH);` por `digitalWrite(D4, HIGH);`, e por último `digitalWrite(LED_BUILTIN, LOW);` por `digitalWrite(D4, LOW);`. Em seguida, no menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do Esp vai piscar no intervalo de 1000 microsegundos (1 segundo). 
 
 ## 2. Adicionar bibliotecas no Arduino IDE
 Bibliotecas são códigos adicionais que estendem a funcionalidade do *Arduino IDE* para usar com módulos, sensores, entre outros, desenvolvidos e compartilhados por colaboradores. Para fazer a atualização do código do MonitorAr, é necessário instalar as seguintes bibliotecas:
