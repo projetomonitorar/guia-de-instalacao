@@ -3,7 +3,7 @@
 
 # Guia de Instalação
 
-O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
+O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU Lolin V3 e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
 
 Antes do kit iniciar a coleta de dados, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e informações de acesso da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então começar o monitoramento dos dados.
 
@@ -18,30 +18,47 @@ Junto com o software do *Arduino* são instalados *drivers* USB, dependendo do s
 
 Para verificar, conectar o cabo USB no kit MonitorAr, e a outra ponta do cabo conectar na USB do computador. Pode ser que o sistema operacional reconheça e instale automaticamente o *driver*. 
 
-Em seguida, abrir o software do *Arduino*, selecionar o menu `Ferramentas > Porta` e observe as portas *Com* listadas, e tecle `Esc` para sair do menu selecionado. Desconectar o cabo do kit MonitorAr da porta USB. Novamente, selecionar o menu `Ferramentas > Porta`, e observe qual porta *Com* não está mais presente, pois a que não está mais na lista é a porta *Com* do MonitorAr. Caso continue com as mesmas portas *Com* listadas, o *driver* do ESP8266 não foi instalado. Neste caso, siga o procedimento do ítem 1.1.
+Em seguida, abrir o software do *Arduino*, selecionar o menu `Ferramentas > Porta` e observe as portas *Com* listadas, e tecle `Esc` para sair do menu selecionado. Desconectar o cabo do kit MonitorAr da porta USB. Novamente, selecionar o menu `Ferramentas > Porta`, e observe qual porta *Com* não está mais presente, pois a que não está mais na lista é a porta *Com* do MonitorAr. Caso continue com as mesmas portas *Com* listadas, o *driver* do ESP8266 não foi instalado. Neste caso, siga o procedimento do ítem *1.1. Instalação do driver CH340*.
 
-### 1.1 Instalando o driver CH340
-Se o *driver* do ESP8266 não foi instalado, baixar o arquivo [Driver CH340 - CH341SER.EXE](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE), e após o download, executá-lo. 
+### 1.1. Instalação do driver CH340
+Se o *driver* do ESP8266 não foi instalado, sair do *Arduino* e baixar o arquivo [Driver CH340 - CH341SER.EXE](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE). Após o download, executar o arquivo `CH341SER.EXE`. Caso surja janelas de alerta, confirmar a execução do arquivo. 
 
-Clicar em `Install`
+Quando a jaenla abrir, clicar em `Install`. 
 ![Instlar o *driver* CH340](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH340-Win10_Uninstall-Install.PNG)
 
+Após a instalação do *driver*, feche a janela.
+
+### 1.2. Adicionar as placas ESP8266
+Para trabalhar com os microcontroladores ESP8266 no *Arduino IDE* é necessário instalar um "pacote de placas". Abrir o *Arduino*, selecionar o menu `Arquivo > Preferências` para abrir a janela de preferências. No campo `URLs Adicionais para Gerenciadores de Placas`, adicionar: `https://arduino.esp8266.com/stable/package_esp8266com_index.json`. Fechar a janela clicando em `OK`.
+
+Em seguida, selecionar o menu `Ferramentas > Placas > Gerenciador de Placas`. No campo de busca, digitar `esp8266`, e instalar o `ESP8266 by ESP8266 Community`. 
+
 Após a conclusão da instalação, conectar o cabo USB no kit MonitorAr, e a outra ponta conectar na USB do computador. 
-Em seguida, abrir o *Arduino IDE*. 
 
+No menu `Ferramentas > Placas`, selecionar na lista a placa `NodeMCU 1.0 (ESP-12E Module)`. Novamente no menu `Ferramentas > Porta`, selecionar a porta *Com* do kit MonitorAr.
 
+### 1.3. Verificar a instalação
+Para testar se a instalação foi bem sucedida, abrir o menu `Arquivo > Exemplos > 01. Basics > Blink`. 
 
-Selecionar o menu `Arquivo > Preferências` para abrir a janela de preferências. No campo `URLs Adicionais para Gerenciadores de Placas`, adicionar: `https://arduino.esp8266.com/stable/package_esp8266com_index.json`. Fechar a janela clicando em `OK`.
+Substituir:
+- `pinMode(LED_BUILTIN, OUTPUT);` por `pinMode(D4, OUTPUT);`
+- `digitalWrite(LED_BUILTIN, HIGH);` por `digitalWrite(D4, HIGH);`
+- `digitalWrite(LED_BUILTIN, LOW);` por `digitalWrite(D4, LOW);`.
 
+Em seguida, selecionar o comando menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do ESP8266 vai piscar no intervalo de 1000 microsegundos (1 segundo). 
 
+Para experimentar diferentes intervalos, substituir o valor do `delay(1000);` por exemplo:
 
-Em seguida, selecionar o menu `Ferramentas > Placas > Gerenciador de Placas`. No campo de busca, digitar `esp8266`, em seguida instalar o `ESP8266 by ESP8266 Community`. 
+```
+void loop() {
+  digitalWrite(D4, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                       // wait for a second
+  digitalWrite(D4, LOW);    // turn the LED off by making the voltage LOW
+  delay(2000);                       // wait for a second
+}
+```
 
-No menu `Ferramentas > Placas`, selecionar na lista a placa `NodeMCU 1.0 (ESP-12E Module)`. Novamente no menu `Ferramentas > Porta`, selecionar a porta que estiver disponível.
-
-Observação: se tiver mais de uma porta *Com* disponível, anote os nomes, pressione a tecla Esc e desplugue o kit MonitorAr do computador. Abrir novamente `Ferramentas > Porta` e observe qual porta *Com* foi desligada, a que não está mais na lista é a porta *Com* do MonitorAr, que deverá ser selecionada.
-
-Para testar se a instalação foi bem sucedida, abrir o menu `Arquivo > Exemplos > 01. Basics > Blink`. Substituir `pinMode(LED_BUILTIN, OUTPUT);` por `pinMode(D4, OUTPUT);`, em seguida `digitalWrite(LED_BUILTIN, HIGH);` por `digitalWrite(D4, HIGH);`, e por último `digitalWrite(LED_BUILTIN, LOW);` por `digitalWrite(D4, LOW);`. Em seguida, no menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do Esp vai piscar no intervalo de 1000 microsegundos (1 segundo). 
+Após as alterações no *delay*, é necessário atualizar o ESP8266 enviando o código, com o comando no menu `Skecth > Carregar` ou pressionar `Ctrl+U`.
 
 ## 2. Adicionar bibliotecas no Arduino IDE
 Bibliotecas são códigos adicionais que estendem a funcionalidade do *Arduino IDE* para usar com módulos, sensores, entre outros, desenvolvidos e compartilhados por colaboradores. Para fazer a atualização do código do MonitorAr, é necessário instalar as seguintes bibliotecas:
