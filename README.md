@@ -1,5 +1,5 @@
 
-![MonitorAr](https://github.com/projetomonitorar/monitorar/raw/master/img/monitorar_logo_600px.png "MonitoAr")
+![MonitorAr](https://drive.google.com/uc?export=view&id=1bMn0m7PamR_itozMg-NlIY7qP-TwBqoT)
 
 # Guia de Instalação
 
