@@ -32,6 +32,8 @@ Após a instalação do *driver*, feche a janela.
 ### 1.2. Adicionar as placas ESP8266
 Para trabalhar com os microcontroladores ESP8266 no *Arduino IDE* é necessário instalar um "pacote de placas". Abrir o *Arduino*, selecionar o menu `Arquivo > Preferências` para abrir a janela de preferências. No campo `URLs Adicionais para Gerenciadores de Placas`, adicionar: `https://arduino.esp8266.com/stable/package_esp8266com_index.json`. Fechar a janela clicando em `OK`.
 
+![Preferências](https://drive.google.com/uc?export=view&id=103yIaG6dnycPRoLw88mZYmwHcPXyj6GC)
+
 Em seguida, selecionar o menu `Ferramentas > Placas > Gerenciador de Placas`. No campo de busca, digitar `esp8266`, e instalar o `ESP8266 by ESP8266 Community`. 
 
 Após a conclusão da instalação, conectar o cabo USB no kit MonitorAr, e a outra ponta conectar na USB do computador. 
