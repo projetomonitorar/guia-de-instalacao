@@ -3,21 +3,37 @@
 
 # Guia de Instalação
 
-O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo sobre a qualidade do ar. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
+O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
 
-Antes de por o kit em funcionamento, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e dados de acessos da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então iniciar a coleta dos dados.
+Antes do kit iniciar a coleta de dados, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e informações de acesso da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então começar o monitoramento dos dados.
 
 **Atenção**: O kit MonitorAr contém peças frágeis, cuidado ao manusear evitando tocar no sensor externo.
 
 ## 1. Instação do Arduino IDE  
 Para atualizar o código é necessário baixar o *Arduino IDE* - o software que permite escrever e enviar código para o microcontrolador Arduino, Esp8266, entre outros.
 
-Acessar https://www.arduino.cc/en/Main/Software e baixar o *Arduino IDE* de acordo com o seu sistema operacional. Quando terminar o download, instalar o *Arduino IDE*.
+Acessar https://www.arduino.cc/en/Main/Software e baixar o *Arduino* de acordo com o seu sistema operacional. Quando terminar o download, instalar o *Arduino*. Durante a instalação poderá aparecer confirmações para instalar os componentes do *Arduino*, caso apareça esses avisos, confirme a instalação. 
 
-Após a conclusão da instalação, conectar o cabo USB no kit MonitorAr, e a outra ponta conectar na USB do computador. Em seguida, abrir o *Arduino IDE*. 
+Junto com o software do *Arduino* são instalados *drivers* USB, dependendo do sistema operacional, pode ser que o *driver* USB usado no ESP8266 do kit MonitorAr não tenha sido instalado. 
+
+Para verificar, conectar o cabo USB no kit MonitorAr, e a outra ponta do cabo conectar na USB do computador. Pode ser que o sistema operacional reconheça e instale automaticamente o *driver*. 
+
+Em seguida, abrir o software do *Arduino*, selecionar o menu `Ferramentas > Porta` e observe as portas *Com* listadas, e tecle `Esc` para sair do menu selecionado. Desconectar o cabo do kit MonitorAr da porta USB. Novamente, selecionar o menu `Ferramentas > Porta`, e observe qual porta *Com* não está mais presente, pois a que não está mais na lista é a porta *Com* do MonitorAr. Caso continue com as mesmas portas *Com* listadas, o *driver* do ESP8266 não foi instalado. Neste caso, siga o procedimento do ítem 1.1.
+
+### 1.1 Instalando o driver CH340
+Se o *driver* do ESP8266 não foi instalado, baixar o arquivo [Driver CH340 - CH341SER.EXE](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE), e após o download, executá-lo. 
+
+Clicar em `Install`
+![Instlar o *driver* CH340](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH340-Win10_Uninstall-Install.PNG)
+
+Após a conclusão da instalação, conectar o cabo USB no kit MonitorAr, e a outra ponta conectar na USB do computador. 
+Em seguida, abrir o *Arduino IDE*. 
+
+
+
 Selecionar o menu `Arquivo > Preferências` para abrir a janela de preferências. No campo `URLs Adicionais para Gerenciadores de Placas`, adicionar: `https://arduino.esp8266.com/stable/package_esp8266com_index.json`. Fechar a janela clicando em `OK`.
 
-**CORRIGIR** Caso tenha problema, instalar o driver da CH340 - https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
+
 
 Em seguida, selecionar o menu `Ferramentas > Placas > Gerenciador de Placas`. No campo de busca, digitar `esp8266`, em seguida instalar o `ESP8266 by ESP8266 Community`. 
 
