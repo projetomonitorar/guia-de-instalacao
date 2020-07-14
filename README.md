@@ -17,6 +17,11 @@ Acessar https://www.arduino.cc/en/Main/Software e baixar o *Arduino IDE* de acor
 Após a conclusão da instalação, conectar o cabo USB no kit MonitorAr, e a outra ponta conectar na USB do computador. Em seguida, abrir o *Arduino IDE*. 
 Selecionar o menu `Arquivo > Preferências` para abrir a janela de preferências. No campo `URLs Adicionais para Gerenciadores de Placas`, adicionar: `https://arduino.esp8266.com/stable/package_esp8266com_index.json`. Fechar a janela clicando em `OK`.
 
+Caso tenha problema, instalar o driver da CH340
+https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
+
+Em seguida, selecionar o menu `Ferramentas > Placas > Gerenciador de Placas`. No campo de busca, digitar `esp8266`, em seguida instalar o `ESP8266 by ESP8266 Community`. 
+
 No menu `Ferramentas > Placas`, selecionar na lista a placa `NodeMCU 1.0 (ESP-12E Module)`. Novamente no menu `Ferramentas > Porta`, selecionar a porta que estiver disponível.
 
 Observação: se tiver mais de uma porta *Com* disponível, anote os nomes, pressione a tecla Esc e desplugue o kit MonitorAr do computador. Abrir novamente `Ferramentas > Porta` e observe qual porta *Com* foi desligada, a que não está mais na lista é a porta *Com* do MonitorAr, que deverá ser selecionada.
