@@ -37,6 +37,9 @@ Para instalar as bibliotecas no *Arduino IDE*, selecionar o menu `Sketch > Inclu
 
 ![Instalação da biblioteca](https://drive.google.com/uc?export=view&id=1xumxmXJzgbUc1fQCS4zLasMv8hWq9a7C)
 
+**CORRIGIR** ESPECIFICAR exatamente qual é a biblioteca e alertar para o aviso que vai instalar dependências.
+
+
 Para mais informações sobre instalação de bibliotecas no *Arduino IDE*, consultar https://hardwarelivreusp.org/tutoriais/2016/11/24/arduino-8libraries.
 
 ## 3. Atualizar o código
