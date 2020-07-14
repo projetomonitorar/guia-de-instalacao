@@ -24,6 +24,7 @@ Em seguida, abrir o software do *Arduino*, selecionar o menu `Ferramentas > Port
 Se o *driver* do ESP8266 não foi instalado, sair do *Arduino* e baixar o arquivo [Driver CH340 - CH341SER.EXE](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE). Após o download, executar o arquivo `CH341SER.EXE`. Caso surja janelas de alerta, confirmar a execução do arquivo. 
 
 Quando a jaenla abrir, clicar em `Install`. 
+
 ![Instlar o *driver* CH340](https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH340-Win10_Uninstall-Install.PNG)
 
 Após a instalação do *driver*, feche a janela.
