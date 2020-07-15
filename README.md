@@ -83,12 +83,9 @@ Bibliotecas são códigos adicionais que estendem a funcionalidade do *Arduino I
 - [BlueDot_BME280](https://github.com/BlueDot-Arduino/BlueDot_BME280), para usar o sensor BME280;
 - [Adafruit_MQTT](https://github.com/adafruit/Adafruit_MQTT_Library), para acessar e publicar os dados no servidor da Adafruit IO. 
 
-Para instalar as bibliotecas no *Arduino IDE*, selecionar o menu `Sketch > Incluir Biblioteca > Gerenciar Bibliotecas`. No campo de busca, digitar *Bluedot_BME280*, em seguida clicar `Instalar` na biblioteca encontrada. Repetir o mesmo procedimento para a biblioteca *Adafruit_MQTT*. 
+Para instalar as bibliotecas no *Arduino IDE*, selecionar o menu `Sketch > Incluir Biblioteca > Gerenciar Bibliotecas`. No campo de busca, digitar *Bluedot_BME280*, em seguida clicar `Instalar` na biblioteca *BlueDot BME280 Library by BlueDot*. Repetir o mesmo procedimento para a biblioteca *Adafruit_MQTT*, instalando a biblioteca *Adafruit MQTT Library by Adafruit*. Se aparecer aviso alertando sobre outras bibliotecas adicionais, confirmar a instalação.
 
-![Instalação da biblioteca](https://drive.google.com/uc?export=view&id=1xumxmXJzgbUc1fQCS4zLasMv8hWq9a7C)
-
-**CORRIGIR** ESPECIFICAR exatamente qual é a biblioteca e alertar para o aviso que vai instalar dependências.
-
+![Instalação da biblioteca](https://drive.google.com/uc?export=view&id=1qmbBkfY5Hi7Fv8e1DOef7kEIZJ2Dp0Sq)
 
 Para mais informações sobre instalação de bibliotecas no *Arduino IDE*, consultar https://hardwarelivreusp.org/tutoriais/2016/11/24/arduino-8libraries.
 
