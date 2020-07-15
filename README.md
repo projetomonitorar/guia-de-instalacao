@@ -79,7 +79,7 @@ Para instalar as bibliotecas no *Arduino IDE*, selecionar o menu `Sketch > Inclu
 Para mais informações sobre instalação de bibliotecas no *Arduino IDE*, consultar https://hardwarelivreusp.org/tutoriais/2016/11/24/arduino-8libraries.
 
 ## 3. Atualizar o código
-O código usando no *MonitorAr* está disponível em https://github.com/projetomonitorar/codigoMonitorar. Na página do GitHub, clicar no botão `Code > Download ZIP`. Após o download, descompactar o arquivo, em seguida, copiar a pasta `monitorAr`para o local preferencial de trabalho no seu computador. No *Arduino IDE*, selecionar o menu `Arquivo > Abrir` e abrir o arquivo `monitorAr.ino`, localizado na pasta copiada anteriormente.
+O código usado no *MonitorAr* está disponível em https://github.com/projetomonitorar/codigoMonitorar. Na página do GitHub, clicar no botão `Code > Download ZIP`. Após o download, descompactar o arquivo, em seguida, copiar a pasta `monitorAr`para o local preferencial de trabalho no seu computador. No *Arduino IDE*, selecionar o menu `Arquivo > Abrir` e abrir o arquivo `monitorAr.ino`, localizado na pasta copiada anteriormente.
 
 Antes de enviar o código para o ESP8266, é necessário fazer três alterações:
 
@@ -95,7 +95,7 @@ Para atualizar o nome e senha da rede de Wifi, localizar o código abaixo:
 #define WLAN_SSID       "Nome WiFi"    //  Nome da rede de WiFi.
 #define WLAN_PASS       "senha"           //  Senha da rede de WiFi.
 ```
-Substituir o `Nome WiFi`pelo nome da sua rede, e `senha` pela senha da sua rede. 
+Substituir o `Nome WiFi`pelo nome da sua rede, e `senha` pela senha da sua rede, mantendo as aspas. 
 
 Observação: o termo rede de WiFi é chamado de SSID (*Service Set Identifier*, em português, *identificador do conjunto de serviços*).
 
