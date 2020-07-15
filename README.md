@@ -17,6 +17,8 @@ O sensor MQ-135 detecta presença de gases tóxicos, sem unidade, em uma faixa d
 
 Os cinco dados coletados pelos sensores são publicados no servidor da Adafruit IO em um intervalo de aproximadamente 30 segundos, usando o protocolo de comunicação [MQTT](https://pt.wikipedia.org/wiki/MQTT). No ambiente da Adafruit IO, cada *dado* é chamado de *feed*, portanto, cada estação tem 5 *feeds*. O ítem *3.3. Atualizar os nomes dos feeds* lista os cinco *feeds* usados em cada estação.
 
+![Diagrama esquemático](https://drive.google.com/uc?export=view&id=1MaRqafqyEPNiQWZJ-ai2l7TtgXUziuGR)
+
 Antes do kit iniciar a coleta de dados, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e informações de acesso da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então começar o monitoramento dos dados.
 
 **Atenção**: O kit MonitorAr contém peças frágeis, cuidado ao manusear evitando tocar no sensor externo.
