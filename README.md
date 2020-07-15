@@ -5,6 +5,18 @@
 
 O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU Lolin V3 e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
 
+No total, são enviados cinco dados para a plataforma Adafruit IO, conforme descrito a seguir. 
+
+O sensor BME280 mede:
+- a temperatura do ar, em graus Celsius;
+- a umidade relativa do ar, em taxa percentual;
+- pressão atmosférica, em hectoPascal;
+- e com base nos dados coletados, calcula a altitude, em metros.
+
+O sensor MQ-135 detecta presença de gases tóxicos, sem unidade, em uma faixa de valor de concentração que varia de 0 a 1023.
+
+Os cinco dados coletados pelos sensores são publicados no servidor da Adafruit IO em um intervalo de aproximadamente 30 segundos, usando o protocolo de comunicação [MQTT](https://pt.wikipedia.org/wiki/MQTT). No ambiente da Adafruit IO, cada *dado* é chamado de *feed*, portanto, cada estação tem 5 *feeds*. O ítem *3.3. Atualizar os nomes dos feeds* lista os cinco *feeds* usados em cada estação.
+
 Antes do kit iniciar a coleta de dados, é necessário atualizar o código do microcontrolador com o nome e senha da rede WiFi, e informações de acesso da plataforma Adafruit IO. Após a atualização do código, deverá ser feita a instalação física do kit, para então começar o monitoramento dos dados.
 
 **Atenção**: O kit MonitorAr contém peças frágeis, cuidado ao manusear evitando tocar no sensor externo.
@@ -88,7 +100,6 @@ Antes de enviar o código para o ESP8266, é necessário fazer três alteraçõe
 - Numerar os *feeds* de dados de acordo com o respectivo número da estação.
 
 ### 3.1. Dados de acesso à rede de WiFi
-
 Para atualizar o nome e senha da rede de Wifi, localizar o código abaixo:
 ```
 /************************* Ponto de acesso de WiFi *********************************/
@@ -100,16 +111,14 @@ Substituir o `Nome WiFi`pelo nome da sua rede, e `senha` pela senha da sua rede,
 Observação: o termo rede de WiFi é chamado de SSID (*Service Set Identifier*, em português, *identificador do conjunto de serviços*).
 
 ### 3.2. Dados de acesso à plataforma Adafruit IO
-
 Para atualizar os dados de acesso ao servidor da Adafruit IO, localizar o código abaixo:
 ```
 #define AIO_USERNAME  "nomeDeUsuario"
 #define AIO_KEY       "chaveDaAdafruitIO"
 ```
-Substituir `nomeDeUsuario` pelo nome de usuário da respectiva estação, e `chaveDaAdafruitIO` pela chave de acesso do usuário. 
+Substituir `nomeDeUsuario` pelo nome de usuário da respectiva estação, e `chaveDaAdafruitIO` pela chave de acesso do usuário, mantendo as aspas. 
 
-### 3.3. Feeds dos dados
-
+### 3.3. Atualizar os nomes dos feeds
 Para atualizar o nome dos feeds de dados, localizar o código abaixo:
 ```
 Adafruit_MQTT_Publish pubTemperatura = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/temperaturaN");
@@ -119,7 +128,15 @@ Adafruit_MQTT_Publish pubAltitude = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/
 Adafruit_MQTT_Publish pubGases = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/gasesN");
 ```
 
-Substituir somente a letra `N` no final da linha de código pelo respectivo número da estação, repetindo a substituição em todos os cinco feeds. Por exemplo, se estou atualizando o código da Estaçao 1, o `"/feeds/temperaturaN"`será atualizado para `"/feeds/temperatura1"`, o `"/feeds/umidadeN"` será `"/feeds/umidade1"`, e assim por diante.
+Substituir somente a letra `N` no final da linha de código pelo respectivo número da estação, repetindo a substituição em todos os cinco feeds. Por exemplo, se estou atualizando o código da Estação **1**, o resultado das substituições será:
+
+```
+Adafruit_MQTT_Publish pubTemperatura = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/temperatura1");
+Adafruit_MQTT_Publish pubUmidade = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/umidade1");
+Adafruit_MQTT_Publish pubPressao = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/pressao1");
+Adafruit_MQTT_Publish pubAltitude = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/altitude1");
+Adafruit_MQTT_Publish pubGases = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/gases1");
+```
 
 ### 3.4. Upload do código para o ESP8266
 Após a conclusão das atualizações no código, com o kit *MonitorAr* conectado ao computador pelo cabo USB, selecionar o menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. 
@@ -132,7 +149,7 @@ A medida que os dados são enviados, será exibido a confirmação `Ok, enviado!
 
 Como forma de confirmação visual, o led azul do ESP8266 pisca quando os dados estão sendo enviados. 
 
-Além desses modods de verificação, a confirmação se os dados estão sendo enviados pode ser feita na plataforma da Adafruit IO, acessando o endereço web da respectiva estação, conforme ítem *5. Dados coletados* deste guia.  
+Além desses modods de verificação, a confirmação se os dados estão sendo enviados pode ser feita na plataforma da Adafruit IO, acessando o endereço web da respectiva estação, conforme ítem *5. Visualizar os dados coletados* deste Guia.  
 
 Após a confirmação que as atualizações foram realizadas, fechar a janela, e desconectar o cabo USB do computador. O kit está pronto para ser instalado no local da coleta de dados.
 
@@ -146,24 +163,16 @@ O kit deverá ser fixado usando como suporte de amarração a abraçadeira de ny
 Após a fixação do kit, conectar o cabo USB no microcontrolador e no carregador USB, e plugar na tomada.
 
 
-## 5. Dados coletados
+## 5. Visualizar os dados coletados
+Para visualizar os dados coletados, acessar a plataforma Adafruit IO e abrir o link respectivo da estação:
 
-No total, são enviados cinco dados para a plataforma Adafruit IO, conforme descrito a seguir. 
+- Estação 1 - Soldadinho-do-Araripe - https://io.adafruit.com/monitorar1/dashboards/monitorar-passarin-1
+- Estação 2 - Bem-te-vi - https://io.adafruit.com/monitorar2/dashboards/monitorar-passarin-2
+- Estação 3 - Canário-do-mato - https://io.adafruit.com/monitorar3/dashboards/monitorar-passarin-3
+- Estação 4 - Pica-pau - https://io.adafruit.com/monitorar4/dashboards/monitorar-passarin-4
+- Estação 5 - Tico-tico - https://io.adafruit.com/monitorar5/dashboards/monitorar-passarin-5
 
-O sensor BME280 mede:
-- a temperatura do ar, em graus Celsius;
-- a umidade relativa do ar, em taxa percentual;
-- pressão atmosférica, em hectoPascal;
-- e com base nos dados coletados, calcula a altitude, em metros.
-
-O sensor MQ-135 detecta presença de gases tóxicos, sem unidade, em uma faixa de valor de concentração que varia de 0 a 1023.
-
-Os cinco dados coletados pelos sensores são publicados no servidor da Adafruit IO a cada intervalo de aproximadamente 30 segundos, usando o protocolo de comunicação [MQTT](https://pt.wikipedia.org/wiki/MQTT). Cada dado é chamado de *feed*, portanto cada estação tem 5 *feeds*. Para visualizar os dados coletados, acessar a plataforma Adafruit IO e abrir o link respectivo da estação:
-- Estação 1 - Soldadinho-do-Araripe - https://io.adafruit.com/monitorar1
-- Estação 2 - Bem-te-vi - https://io.adafruit.com/monitorar2
-- Estação 3 - Canário-do-mato - https://io.adafruit.com/monitorar3
-- Estação 4 - Pica-pau - https://io.adafruit.com/monitorar4
-- Estação 5 - Tico-tico - https://io.adafruit.com/monitorar5
+Para visualizar em tempo real a publicação dos dados, é necessário criar uma [conta na Adafruit IO](https://accounts.adafruit.com/users/sign_up). 
 
 ___
 
