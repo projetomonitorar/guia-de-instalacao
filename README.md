@@ -172,6 +172,7 @@ Para visualizar os dados coletados, acessar a plataforma Adafruit IO e abrir o l
 - Estação 3 - Canário-do-mato - https://io.adafruit.com/monitorar3/dashboards/monitorar-passarin-3
 - Estação 4 - Pica-pau - https://io.adafruit.com/monitorar4/dashboards/monitorar-passarin-4
 - Estação 5 - Tico-tico - https://io.adafruit.com/monitorar5/dashboards/monitorar-passarin-5
+- Todas as Estações -  https://io.adafruit.com/abc_ambiental/dashboards/monitorar-passarins
 
 Para visualizar em tempo real a publicação dos dados, é necessário criar uma [conta na Adafruit IO](https://accounts.adafruit.com/users/sign_up). 
 
