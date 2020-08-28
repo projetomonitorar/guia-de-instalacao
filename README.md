@@ -5,6 +5,8 @@
 
 O projeto MonitorAr é uma iniciativa de ciência cidadã de sensoriamento participativo. A proposta é experimentar coletivamente a coleta, visualização e análise de dados climáticos. O kit MonitorAr é composto um microcontrolador Esp8266 NodeMCU Lolin V3 e por dois sensores, o BME280 e o MQ-135, e alimentado por um carregador USB.
 
+A coleta de dados começou em agosto deste ano, com cinco participantes e suas respectivas estações localizadas na região do Cariri, no sul do Ceará. Para ver os dados coletados pelas estações, acesse https://io.adafruit.com/abc_ambiental/dashboards/monitorar-passarins.
+
 No total, são enviados cinco dados para a plataforma Adafruit IO, conforme descrito a seguir. 
 
 O sensor BME280 mede:
