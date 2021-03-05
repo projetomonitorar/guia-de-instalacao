@@ -64,7 +64,7 @@ Substituir:
 - `digitalWrite(LED_BUILTIN, HIGH);` por `digitalWrite(D4, HIGH);`
 - `digitalWrite(LED_BUILTIN, LOW);` por `digitalWrite(D4, LOW);`.
 
-Em seguida, selecionar o comando menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do ESP8266 vai piscar no intervalo de 1000 microsegundos (1 segundo). 
+Em seguida, selecionar o comando menu `Skecth > Carregar`, ou pressionar `Ctrl+U`. O código Blink será enviado ao microcontrolador, e o led interno do ESP8266 vai piscar no intervalo de 1000 milissegundos (1 segundo). 
 
 Para experimentar diferentes intervalos, substituir o valor do `delay(1000);` por exemplo:
 
